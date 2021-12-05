@@ -4,7 +4,9 @@ module.exports  = app => {
 
   app.get('/atendimentos', (req, res) => {
     
-    Atendimento.listar(res);
+    Atendimento.listar()
+    .then(results => res.status(200).json(results))
+    .catch(errors => res.status(400).json(error));
 
   });
 
@@ -19,7 +21,11 @@ module.exports  = app => {
     
     const atendimento = req.body;
 
-    Atendimento.adicionar(atendimento, res);
+    Atendimento.adicionar(atendimento)
+      .then(atendimentoCadastrado => 
+        res.status(200).json(atendimentoCadastrado)
+      )
+      .catch( error => res.status(400).json(error));
     
   })
 

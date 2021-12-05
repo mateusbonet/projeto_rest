@@ -1,6 +1,6 @@
 const moment = require('moment');
-const conexao = require('../database/conection');
-const upload = require('../arquivos/upload');
+const conexao = require('../infraestrutura/database/conection');
+const upload = require('../infraestrutura/arquivos/upload');
 
 class Pet {
 
